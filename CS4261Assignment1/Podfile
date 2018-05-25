@@ -1,0 +1,4 @@
+source 'https://github.com/CocoaPods/Specs.git'
+target 'CS4261Assignment1' do
+  pod 'GoogleMaps'
+end
