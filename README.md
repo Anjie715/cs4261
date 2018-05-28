@@ -22,9 +22,11 @@ Just compile and run, the target sdk is Android 8.0
 
 
 ## Server
-Current just hello world
+Currently handle register and login
 
-`http://flask-envi.nsudju8m2m.us-east-1.elasticbeanstalk.com/`
+To register: `https://test-register-api-heroku.herokuapp.com/auth/register`
+
+To login: `https://test-register-api-heroku.herokuapp.com/auth/login`
 
 ## Reference
 https://cocoapods.org/
