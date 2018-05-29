@@ -47,6 +47,3 @@ https://www.youtube.com/watch?v=skc-ZEU9kO8
 
 http://flask.pocoo.org/
 
-##collaborator
-Yinghui Dong
-the android code also runs on Yinghui's mac
