@@ -17,16 +17,20 @@ And run `pod install`
 
 Open "CS4261Assignment1.xcworkspace" and hit run
 
+This is to be completed....
+
 ## Android app
-Just compile and run, the target sdk is Android 8.0
+Just compile and run, the target sdk is 26(Android 8.0)
 
 
 ## Server
 Currently handle register and login
 
-To register: `https://test-register-api-heroku.herokuapp.com/auth/register`
+To register: https://test-register-api-heroku.herokuapp.com/auth/register
 
-To login: `https://test-register-api-heroku.herokuapp.com/auth/login`
+To login: https://test-register-api-heroku.herokuapp.com/auth/login
+
+To add a location: https://test-register-api-heroku.herokuapp.com/auth/hello
 
 ## Reference
 https://cocoapods.org/
@@ -39,4 +43,6 @@ https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
 
 https://www.youtube.com/watch?v=MwZwr5Tvyxo
 
-https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-flask.html
+https://www.youtube.com/watch?v=skc-ZEU9kO8
+
+http://flask.pocoo.org/
