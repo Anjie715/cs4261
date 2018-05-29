@@ -1,4 +1,4 @@
-package home.hediwang.cs4261assignment1android;
+package home.cs4261assignment1android.cs4261assignment1android;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("home.hediwang.cs4261assignment1android", appContext.getPackageName());
+        assertEquals("home.cs4261assignment1android", appContext.getPackageName());
     }
 }

@@ -1,4 +1,4 @@
-package home.hediwang.cs4261assignment1android;
+package home.cs4261assignment1android.cs4261assignment1android;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;

@@ -1,10 +1,12 @@
-package home.hediwang.cs4261assignment1android;
+package home.cs4261assignment1android.cs4261assignment1android;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import home.cs4261assignment1android.R;
 
 public class MainActivity extends AppCompatActivity {
 

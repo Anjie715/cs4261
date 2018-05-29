@@ -1,15 +1,11 @@
-package home.hediwang.cs4261assignment1android;
+package home.cs4261assignment1android.cs4261assignment1android;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
-import android.content.Intent;
-import android.os.AsyncTask;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.LoaderManager;
-import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
+
+import android.os.AsyncTask;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -36,34 +32,28 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.Executor;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
 
 import javax.net.ssl.HttpsURLConnection;
+
+import home.cs4261assignment1android.R;
 
 /**
  * A login screen that offers login via email/password.
  */
-public class LoginActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity {
 
+    private UserRegisterTask mAuthTask = null;
 
-    /**
-     * Keep track of the login task to ensure we can cancel it if requested.
-     */
-
+    // UI references.
     private EditText mEmailView;
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
-    private UserLoginTask mAuthTask = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_register);
         // Set up the login form.
         mEmailView = (EditText) findViewById(R.id.email);
 
@@ -91,17 +81,11 @@ public class LoginActivity extends AppCompatActivity {
         mProgressView = findViewById(R.id.login_progress);
     }
 
-
-    /**
-     * Attempts to sign in or register the account specified by the login form.
-     * If there are form errors (invalid email, missing fields, etc.), the
-     * errors are presented and no actual login attempt is made.
-     */
     private void attemptLogin() {
-
         if (mAuthTask != null) {
             return;
         }
+
         // Reset errors.
         mEmailView.setError(null);
         mPasswordView.setError(null);
@@ -112,6 +96,12 @@ public class LoginActivity extends AppCompatActivity {
 
         boolean cancel = false;
         View focusView = null;
+
+        if (TextUtils.isEmpty(password)) {
+            mPasswordView.setError("Password cannot be empty");
+            focusView = mPasswordView;
+            cancel = true;
+        }
 
         // Check for a valid email address.
         if (TextUtils.isEmpty(email)) {
@@ -127,11 +117,8 @@ public class LoginActivity extends AppCompatActivity {
         } else {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
-            //  makeOperationSearchQuery("https://test-register-api-heroku.herokuapp.com/auth/login");
-
-
             showProgress(true);
-            mAuthTask = new UserLoginTask(email,password);
+            mAuthTask = new UserRegisterTask(email, password);
             mAuthTask.execute((Void) null);
         }
     }
@@ -173,16 +160,17 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+
     /**
      * Represents an asynchronous login/registration task used to authenticate
      * the user.
      */
-    public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
+    public class UserRegisterTask extends AsyncTask<Void, Void, Boolean> {
 
         private final String mEmail;
         private final String mPassword;
 
-        UserLoginTask(String email, String password) {
+        UserRegisterTask(String email, String password) {
             mEmail = email;
             mPassword = password;
         }
@@ -193,8 +181,7 @@ public class LoginActivity extends AppCompatActivity {
             URL url;
             String response = "";
             try {
-               // url = new URL("https://test-register-api-heroku.herokuapp.com/auth/login");
-                url = new URL("https://test-register-api-heroku.herokuapp.com/auth/login");
+                url = new URL("https://test-register-api-heroku.herokuapp.com/auth/register");
 
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.setReadTimeout(15000);
@@ -250,12 +237,11 @@ public class LoginActivity extends AppCompatActivity {
             showProgress(false);
 
             if (success) {
-                Intent mapIntent = new Intent(LoginActivity.this, MapActivity.class);
-                mapIntent.putExtra("username", mEmail);
-                startActivity(mapIntent);
+                Toast.makeText(RegisterActivity.this, "Register Successfully", Toast.LENGTH_SHORT).show();
+                finish();
 
             } else {
-                Toast.makeText(LoginActivity.this, "Login failed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RegisterActivity.this, "Login failed", Toast.LENGTH_SHORT).show();
             }
         }
 
@@ -265,6 +251,5 @@ public class LoginActivity extends AppCompatActivity {
             showProgress(false);
         }
     }
-
 }
 

@@ -1,9 +1,8 @@
-package home.hediwang.cs4261assignment1android;
+package home.cs4261assignment1android.cs4261assignment1android;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.AsyncTask;
@@ -37,6 +36,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.net.ssl.HttpsURLConnection;
+
+import home.cs4261assignment1android.R;
 
 public class MapActivity extends FragmentActivity implements OnMapReadyCallback {
 
